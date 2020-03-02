@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 export default function Register(props) {
+  console.log(props, 'contact props')
   const [userData, setUserData] = useState({
     username: "",
     password: "",
@@ -16,7 +17,7 @@ export default function Register(props) {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event, props) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log(userData, "userData at time of post");
 
@@ -29,7 +30,7 @@ export default function Register(props) {
       userData.medicinalUse = false;
     }
 
-    console.log( "medicinal value", userData.medicinalUse);
+    console.log("medicinal value", userData.medicinalUse);
 
     axios
       .post(
@@ -53,19 +54,21 @@ export default function Register(props) {
     <form onSubmit={handleSubmit} name="login">
       <label htmlFor="username">Username: </label>
       <input
-        // required
+        required
         autoFocus
         type="text"
         name="username"
+        placeholder="JohnSmith"
         value={userData.username}
         onChange={handleChange}
       />
 
       <label htmlFor="password">Password: </label>
       <input
-        // required
+        required
         type="password"
         name="password"
+        placeholder="********"
         value={userData.password}
         onChange={handleChange}
       />
@@ -106,7 +109,24 @@ export default function Register(props) {
           High
         </option>
       </select>
-      <br />
+
+      <label htmlFor="medicalConditions">Medical Conditions: </label>
+      <input
+        type="text"
+        name="medicalConditions"
+        placeholder="List anything that should be taken into consideration"
+        value={userData.medicalConditions}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="desiredEffect">Desired Effect: </label>
+      <input
+        type="text"
+        name="desiredEffect"
+        placeholder="Pain relief, anxiety, depression"
+        value={userData.desiredEffect}
+        onChange={handleChange}
+      />
 
       <label>I Hereby Certify That I'm Over The Age of 21.</label>
       <input required type="checkbox" />
