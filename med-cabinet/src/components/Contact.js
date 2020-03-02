@@ -1,23 +1,24 @@
 import React from "react";
 
-export default function Contact() {
+export default function Contact(props) {
   return (
     <div>
-      {/* <form
+      <form
         action="https://formspree.io/xgeyzgpb"
+        target="_blank"
         method="POST"
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
       >
-        <label>Your Email: </label>
-        <input type="text" name="_replyto" />
-        <label>Your Message: </label>
-        <input type="text" name="message" />
+        <label>Enter Your Email: </label>
+        <input type="text" name="_replyto" required/>
+        <label>Enter Your Message: </label>
+        <input type="text" name="message" required/>
 
         <label>Attach a file: </label>
         <input type="file" name="upload" />
 
         <button type="submit">Send</button>
-      </form> */}
+      </form>
     </div>
   );
-};
+}
