@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Button } from "@material-ui/core";
 
-import { registerHandler, REGISTER_URL } from "../../utils/axiosWithAuth";
+import { registerHandler } from "../../utils/axiosWithAuth";
 
 const useStyles = makeStyles(theme => ({
   root: {
