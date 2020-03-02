@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Register(props) {
-  console.log(props, 'contact props')
+  // console.log( 'register props', props)
   const [userData, setUserData] = useState({
     username: "",
     password: "",
@@ -17,7 +17,7 @@ export default function Register(props) {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     console.log(userData, "userData at time of post");
 
@@ -38,10 +38,8 @@ export default function Register(props) {
         userData
       )
       .then(response => {
-        console.log("Successful Login", response);
-        localStorage.setItem("token", response.data.payload);
-        localStorage.setItem("ID", response.data.userID);
-        props.history.push("/browse");
+        console.log("Successful Login", response.data);
+        props.history.push("/login");
       })
       .catch(err => {
         console.log(err);

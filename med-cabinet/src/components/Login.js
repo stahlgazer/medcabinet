@@ -13,10 +13,14 @@ export default function Login(props) {
     event.preventDefault();
     axios
       // update api url when available
-      .post("http://localhost:5000/api/login", userData)
+      .post(
+        "https://build-week-04-med-cabinet.herokuapp.com/api/auth/login",
+        userData
+      )
       .then(response => {
         console.log("Successful Login", response);
-        localStorage.setItem("token", response.data.payload);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("ID", response.data.userID);
         props.history.push("/browse");
       })
       .catch(err => {
@@ -27,23 +31,23 @@ export default function Login(props) {
       });
   };
   return (
-    <form onSubmit={handleSubmit} name="login" className="login">
+    <form onSubmit={handleSubmit} name="login">
       <label htmlFor="username">Username: </label>
       <input
-        // required
+        required
         type="text"
         name="username"
+        placeholder="JohnSmith"
         value={userData.username}
         onChange={handleChange}
       />
 
-      <label className="loginlabels" htmlFor="password">
-        Password:{" "}
-      </label>
+      <label htmlFor="password">Password: </label>
       <input
-        // required
+        required
         type="password"
         name="password"
+        placeholder="********"
         value={userData.password}
         onChange={handleChange}
       />
