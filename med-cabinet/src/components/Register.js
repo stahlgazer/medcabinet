@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Register(props) {
   const [userData, setUserData] = useState({
     username: "",
     password: "",
-    purpose: "",
-    tolerance: undefined,
-    conditions: "",
-    effects: ""
+    medicinalUse: false,
+    tolerance: 0,
+    medicalConditions: "",
+    desiredEffect: ""
   });
   const [error, setError] = useState("");
 
@@ -16,19 +16,35 @@ export default function Register(props) {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event, props) => {
     event.preventDefault();
+    console.log(userData, "userData at time of post");
+
+    userData.tolerance = Number(userData.tolerance);
+    console.log(userData.tolerance);
+
+    if (userData.medicinalUse === "true") {
+      userData.medicinalUse = true;
+    } else {
+      userData.medicinalUse = false;
+    }
+
+    console.log( "medicinal value", userData.medicinalUse);
+
     axios
-      // update api url when available
-      .post("http://localhost:5000/api/login", userData)
+      .post(
+        "https://build-week-04-med-cabinet.herokuapp.com/api/auth/register",
+        userData
+      )
       .then(response => {
         console.log("Successful Login", response);
         localStorage.setItem("token", response.data.payload);
+        localStorage.setItem("ID", response.data.userID);
         props.history.push("/browse");
       })
       .catch(err => {
         console.log(err);
-        setError("Please Fill Out All Required Fields");
+        setError("Error Processing Your Request, Try Again Later");
         console.log("show user:", error);
         console.log("Login failed for:", userData.username, userData.password);
       });
@@ -38,6 +54,7 @@ export default function Register(props) {
       <label htmlFor="username">Username: </label>
       <input
         // required
+        autoFocus
         type="text"
         name="username"
         value={userData.username}
@@ -52,18 +69,48 @@ export default function Register(props) {
         value={userData.password}
         onChange={handleChange}
       />
-      <label htmlFor="purpose">Purpose: </label>
-      <select name="purpose">
-        <option value={userData.purpose}>Recreational</option>
-        <option value={userData.purpose}>Medical</option>
+
+      <label>Medicinal or Recreational Use: </label>
+      <select
+        name="medicinalUse"
+        value={userData.medicinalUse}
+        onChange={handleChange}
+      >
+        <option name="medicinalUse" value={true}>
+          Medicinal
+        </option>
+        <option name="medicinalUse" value={false}>
+          Recreational
+        </option>
       </select>
+
       <label htmlFor="tolerance">Tolerance Level: </label>
-      <select name="tolerance">
-        <option value={userData.tolerance}>None - 0</option>
-        <option value={userData.tolerance}>Low - 1</option>
-        <option value={userData.tolerance}>Intermediate - 2</option>
-        <option value={userData.tolerance}>High - 3</option>
+      <select
+        name="tolerance"
+        value={userData.tolerance}
+        onChange={handleChange}
+      >
+        <option name="tolerance" value={0}>
+          None
+        </option>
+        <option name="tolerance" value={1}>
+          Beginner
+        </option>
+        <option name="tolerance" value={2}>
+          Intermediate
+        </option>
+        <option name="tolerance" value={3}>
+          Regular
+        </option>
+        <option name="tolerance" value={4}>
+          High
+        </option>
       </select>
+      <br />
+
+      <label>I Hereby Certify That I'm Over The Age of 21.</label>
+      <input required type="checkbox" />
+
       <button name="submit">Register</button>
       {error && <p>{error}</p>}
     </form>
