@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Register(props) {
-  const [userData, setUserData] = useState({username: "", password: ""});
-  const [error, setError] = useState("")
+  const [userData, setUserData] = useState({
+    username: "",
+    password: "",
+    purpose: "",
+    tolerance: undefined,
+    conditions: "",
+    effects: ""
+  });
+  const [error, setError] = useState("");
 
   const handleChange = event => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
@@ -17,7 +24,7 @@ export default function Register(props) {
       .then(response => {
         console.log("Successful Login", response);
         localStorage.setItem("token", response.data.payload);
-        props.history.push("/friends");
+        props.history.push("/browse");
       })
       .catch(err => {
         console.log(err);
@@ -27,7 +34,7 @@ export default function Register(props) {
       });
   };
   return (
-    <form onSubmit={handleSubmit} name="login" className="login">
+    <form onSubmit={handleSubmit} name="login">
       <label htmlFor="username">Username: </label>
       <input
         // required
@@ -37,9 +44,7 @@ export default function Register(props) {
         onChange={handleChange}
       />
 
-      <label className="loginlabels" htmlFor="password">
-        Password:{" "}
-      </label>
+      <label htmlFor="password">Password: </label>
       <input
         // required
         type="password"
@@ -47,6 +52,18 @@ export default function Register(props) {
         value={userData.password}
         onChange={handleChange}
       />
+      <label htmlFor="purpose">Purpose: </label>
+      <select name="purpose">
+        <option value={userData.purpose}>Recreational</option>
+        <option value={userData.purpose}>Medical</option>
+      </select>
+      <label htmlFor="tolerance">Tolerance Level: </label>
+      <select name="tolerance">
+        <option value={userData.tolerance}>None - 0</option>
+        <option value={userData.tolerance}>Low - 1</option>
+        <option value={userData.tolerance}>Intermediate - 2</option>
+        <option value={userData.tolerance}>High - 3</option>
+      </select>
       <button name="submit">Register</button>
       {error && <p>{error}</p>}
     </form>

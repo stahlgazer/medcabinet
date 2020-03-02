@@ -9,10 +9,23 @@ export default function Contact(props) {
         method="POST"
         encType="multipart/form-data"
       >
+        <label>Full Name: </label>
+        <input
+          type="text"
+          name="name"
+          id="full-name"
+          placeholder="First and Last"
+          required
+        />
         <label>Enter Your Email: </label>
-        <input type="text" name="_replyto" required/>
+        <input
+          type="text"
+          name="_replyto"
+          required
+          placeholder="JohnSmith@email.com"
+        />
         <label>Enter Your Message: </label>
-        <input type="text" name="message" required/>
+        <input type="text" name="message" required />
 
         <label>Attach a file: </label>
         <input type="file" name="upload" />

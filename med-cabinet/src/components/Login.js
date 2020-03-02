@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Login(props) {
-  const [userData, setUserData] = useState({username: "", password: ""});
-  const [error, setError] = useState("")
+  const [userData, setUserData] = useState({ username: "", password: "" });
+  const [error, setError] = useState("");
 
   const handleChange = event => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
@@ -17,7 +17,7 @@ export default function Login(props) {
       .then(response => {
         console.log("Successful Login", response);
         localStorage.setItem("token", response.data.payload);
-        props.history.push("/friends");
+        props.history.push("/browse");
       })
       .catch(err => {
         console.log(err);
