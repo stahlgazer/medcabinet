@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Button } from "@material-ui/core";
 
-import { axiosPost, TEST_URL_POST } from "../../utils/axiosWithAuth";
+import { registerHandler, REGISTER_URL } from "../../utils/axiosWithAuth";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,7 +40,7 @@ const RegisterForm = () => {
       initialValues={{ email: "", username: "", password: "" }}
       onSubmit={(values, { isSubmitting, resetForm }) => {
         console.log(values);
-        axiosPost(TEST_URL_POST, values);
+        registerHandler(values);
         isSubmitting(false)
         resetForm()
       }}
@@ -77,7 +77,6 @@ const RegisterForm = () => {
             as={Button}
             variant="contained"
           > Sign Up </Field>
-          {/* <Field name='submit' className={classes.btn} type='submit' as={Button} >Submit</Field> */}
         </Form>
       )}
     </Formik>
