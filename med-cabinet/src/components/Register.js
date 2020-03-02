@@ -43,7 +43,7 @@ export default function Register(props) {
       })
       .catch(err => {
         console.log(err);
-        setError("Error Processing Your Request, Try Again Later");
+        setError("That Userame is Unavailable. Please Try Again.");
         console.log("show user:", error);
         console.log("Login failed for:", userData.username, userData.password);
       });
@@ -71,17 +71,17 @@ export default function Register(props) {
         onChange={handleChange}
       />
 
-      <label>Medicinal or Recreational Use: </label>
+      <label>Recreational or Medical Use: </label>
       <select
         name="medicinalUse"
         value={userData.medicinalUse}
         onChange={handleChange}
       >
-        <option name="medicinalUse" value={true}>
-          Medicinal
-        </option>
         <option name="medicinalUse" value={false}>
           Recreational
+        </option>
+        <option name="medicinalUse" value={true}>
+          Medicinal
         </option>
       </select>
 

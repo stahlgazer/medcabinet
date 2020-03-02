@@ -12,7 +12,6 @@ export default function Login(props) {
   const handleSubmit = event => {
     event.preventDefault();
     axios
-      // update api url when available
       .post(
         "https://build-week-04-med-cabinet.herokuapp.com/api/auth/login",
         userData
