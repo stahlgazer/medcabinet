@@ -6,7 +6,8 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Navigation from "./components/Navigation";
 import Browse from "./components/Browse";
-// import PrivateRoute from "./components/PrivateRoute";
+import Dashboard from "./components/Dashboard";
+// import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
       <Link to="/login">login</Link>
       <Link to="/browse">browse</Link>
       <Link to="/contact">contact</Link>
+      <Link to="/dashboard">dashboard</Link>
 
+      <Route path="/dashboard" component={Dashboard} />
       <Route path="/browse" component={Browse} />
       <Route path="/" component={Navigation} />
       <Route path="/login" component={Login} />

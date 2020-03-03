@@ -1,9 +1,9 @@
 import React from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
+import axiosWithAuth from "./axiosWithAuth";
 
-export default function Dashboard(props) {
-  // console.log( 'dashboard props', props)
-
+export default function Testcode(props) {
+  console.log( 'register props', props)
+  
   axiosWithAuth()
     .get(`/users/${localStorage.getItem('ID')}`)
     .then(response => {

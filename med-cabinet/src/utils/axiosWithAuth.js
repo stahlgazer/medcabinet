@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const axiosWithAuth = () => {
+const axiosWithAuth = () => {
   return axios.create({
     baseURL: "https://build-week-04-med-cabinet.herokuapp.com/api",
     headers: {
@@ -8,3 +8,5 @@ export const axiosWithAuth = () => {
     }
   });
 };
+
+export default axiosWithAuth
