@@ -73,7 +73,7 @@ export default function Register(props) {
         value={userData.password}
         onChange={handleChange}
       />
-
+      <h3>Preferences can be updated in your Dashboard.</h3>
       <label>Recreational or Medical Use: </label>
       <select
         className="gavinputs"
@@ -128,7 +128,7 @@ export default function Register(props) {
         className="gavinputs"
         type="text"
         name="desiredEffect"
-        placeholder="Pain relief, anxiety, depression"
+        placeholder="Pain Relief, Sleep, Release Stress, Depressant"
         value={userData.desiredEffect}
         onChange={handleChange}
       />

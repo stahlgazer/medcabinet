@@ -18,10 +18,10 @@ export default function Contact(props) {
           type="text"
           name="name"
           id="full-name"
-          placeholder="First and Last"
+          placeholder="First and Last Name"
           required
         />
-        <label className="gavlabels">Enter Your Email: </label>
+        <label className="gavlabels">Your Email: </label>
         <input
           className="gavinputs"
           type="text"

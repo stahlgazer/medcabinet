@@ -61,6 +61,13 @@ export default function Login(props) {
       <Button type="submit" variant="contained" color="primary">
         Log in
       </Button>
+      <Button
+        onClick={() => props.history.push("/register")}
+        variant="contained"
+        color="secondary"
+      >
+        Register
+      </Button>
       {error && <p>{error}</p>}
     </form>
   );
