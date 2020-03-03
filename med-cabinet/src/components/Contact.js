@@ -12,6 +12,7 @@ export default function Contact(props) {
         method="POST"
         encType="multipart/form-data"
       >
+        <h3>Send Us a Message</h3>
         <label className="gavlabels">Full Name: </label>
         <input
           className="gavinputs"
@@ -24,7 +25,7 @@ export default function Contact(props) {
         <label className="gavlabels">Your Email: </label>
         <input
           className="gavinputs"
-          type="text"
+          type="email"
           name="_replyto"
           required
           placeholder="JohnSmith@email.com"

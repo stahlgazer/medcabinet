@@ -20,18 +20,17 @@ export default function Register(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(userData, "userData at time of post");
 
     userData.tolerance = Number(userData.tolerance);
-    console.log(userData.tolerance);
+    // console.log(userData.tolerance);
 
     if (userData.medicinalUse === "true") {
       userData.medicinalUse = true;
     } else {
       userData.medicinalUse = false;
     }
-
-    console.log("medicinal value", userData.medicinalUse);
+    // console.log("medicinal value", userData.medicinalUse);
+    console.log(userData, "userData at time of post");
 
     axios
       .post(
