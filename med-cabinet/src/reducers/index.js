@@ -1,31 +1,22 @@
 //test reducer to initialize store
 
 const initialState = {
-    isLoading: false,
-    smurf: null,
-    error: ""
+    favorites: [],
   };
   
   export const reducer = (state = initialState, action) => {
-    // switch (action.type) {
-    //   case "FETCHING_SMURF_START":
-    //     return {
-    //       ...state,
-    //       isLoading: true
-    //     };
-    //   case "FETCHING_SMURF_SUCCESS":
-    //     return {
-    //       ...state,
-    //       isLoading: false,
-    //       smurf: action.payload
-    //     };
-    //   case "FETCHING_SMURF_FAILED":
-    //     return {
-    //       ...state,
-    //       isLoading: false,
-    //       error: action.payload
-    //     };
-    //   default:
-    //     return state;
-    // }
+    switch (action.type) {
+      case "ADD_FAVORITE":
+        return {
+          ...state,
+          favorites: [...state.favorites, action.payload]
+        };
+      case "DELETE_FAVORITE":
+        return {
+          ...state,
+          favorites: [...state.favorites.filter(item => item !== action.payload)]
+        };
+      default:
+        return state;
+    }
   };
