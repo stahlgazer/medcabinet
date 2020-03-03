@@ -46,7 +46,7 @@ const NavigationBar = props => {
         </div>
         <SearchBox />
         <div>
-          <NavLink className={classes.links} to='/login' component={Link} >Strains</NavLink>
+          <NavLink className={classes.links} to='/browse' component={Link} >Strains</NavLink>
           <NavLink className={classes.links} to='/register' component={Link} > Dispensaries </NavLink>
         </div>
   
