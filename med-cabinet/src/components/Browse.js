@@ -1,5 +1,10 @@
 import React from "react";
 
 export default function Browse(props) {
-  return <div></div>;
+    // console.log( 'browse props', props)
+  return (
+  <div>
+
+  </div>
+  );
 }

@@ -1,5 +1,10 @@
 import React from "react";
 
 export default function Navigation(props) {
-  return <div></div>;
+    // console.log( 'nav props', props)
+  return (
+    <div>
+
+    </div>
+  );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Register(props) {
-  // console.log( 'register props', props)
+    // console.log( 'register props', props)
   const [userData, setUserData] = useState({
     username: "",
     password: "",

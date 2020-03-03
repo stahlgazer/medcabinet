@@ -11,6 +11,11 @@ import Browse from "./components/Browse";
 function App() {
   return (
     <div className="App">
+      <Link to="/register">register</Link>
+      <Link to="/login">login</Link>
+      <Link to="/browse">browse</Link>
+      <Link to="/contact">contact</Link>
+
       <Route path="/browse" component={Browse} />
       <Route path="/" component={Navigation} />
       <Route path="/login" component={Login} />
