@@ -22,12 +22,12 @@ function App() {
       <Route path="/register" component={Register} />
       <Route path="/" component={Navigation} />
       <Route path="/dashboard" component={Dashboard} />
-      {/* <Route path="/browse" component={Browse} /> */}
-      {/* <Route path="/contact" component={Contact} /> */}
-
+      <Route path="/browse" component={Browse} />
+      <Route path="/contact" component={Contact} />
+      
       {/* test protected route */}
-      <PrivateRoute path="/contact" component={Contact} />
-      <PrivateRoute path="/browse" component={Browse} />
+      {/* <PrivateRoute path="/contact" component={Contact} />
+      <PrivateRoute path="/browse" component={Browse} /> */}
     </div>
   );
 }
