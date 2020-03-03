@@ -23,7 +23,12 @@ const useStyles = makeStyles(theme => ({
     margin: '0 0.3rem',
     color: '#2F5973',
   },
+  medTitle: {
+    marginLeft: 10,
+    color: '#2F5973',
+  },
   orange: {
+    marginRight: 10,
     color: theme.palette.getContrastText(deepOrange[500]),
     backgroundColor: deepOrange[500],
   },
@@ -37,12 +42,12 @@ const NavigationBar = props => {
       {/* <NavLink to='/login' component={Link} >Login</NavLink> */}
       {/* <NavLink to='/register' component={Link} >Register</NavLink> */}
         <div>
-          <Typography>MEDBAY</Typography>
+          <Typography className={classes.medTitle}>MEDBAY</Typography>
         </div>
         <SearchBox />
         <div>
-          <NavLink className={classes.links} to='/login' component={Link} >Strains</NavLink>
-          <NavLink className={classes.links} to='/register' component={Link} >Dispensaries</NavLink>
+          <NavLink className={classes.links} to='/browse' component={Link} >Strains</NavLink>
+          <NavLink className={classes.links} to='/register' component={Link} > Dispensaries </NavLink>
         </div>
   
         <Avatar className={classes.orange}/>
