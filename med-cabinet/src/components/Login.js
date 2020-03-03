@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Button } from "@material-ui/core";
 
 export default function Login(props) {
-    // console.log( 'login props', props)
+  // console.log( 'login props', props)
   const [userData, setUserData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
 
@@ -31,9 +32,12 @@ export default function Login(props) {
       });
   };
   return (
-    <form onSubmit={handleSubmit} name="login">
-      <label htmlFor="username">Username: </label>
+    <form className="gavforms" onSubmit={handleSubmit} name="login">
+      <label className="gavlabels" htmlFor="username">
+        Username:{" "}
+      </label>
       <input
+        className="gavinputs"
         required
         type="text"
         name="username"
@@ -42,8 +46,11 @@ export default function Login(props) {
         onChange={handleChange}
       />
 
-      <label htmlFor="password">Password: </label>
+      <label className="gavlabels" htmlFor="password">
+        Password:{" "}
+      </label>
       <input
+        className="gavinputs"
         required
         type="password"
         name="password"
@@ -51,7 +58,9 @@ export default function Login(props) {
         value={userData.password}
         onChange={handleChange}
       />
-      <button name="submit">Log in</button>
+      <Button type="submit" variant="contained" color="primary">
+        Log in
+      </Button>
       {error && <p>{error}</p>}
     </form>
   );

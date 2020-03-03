@@ -39,7 +39,7 @@ export default function Contact(props) {
           className="gavinputs"
         />
 
-        <label className="gavlabels">Attach a file: </label>
+        <label className="gavlabels">(Optional) Attach a file: </label>
         <input className="gavfile" type="file" name="upload" />
 
         <Button variant="contained" color="primary" type="submit">

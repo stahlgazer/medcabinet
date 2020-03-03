@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Button } from "@material-ui/core";
 
 export default function Register(props) {
-    // console.log( 'register props', props)
+  // console.log( 'register props', props)
   const [userData, setUserData] = useState({
     username: "",
     password: "",
@@ -49,9 +50,10 @@ export default function Register(props) {
       });
   };
   return (
-    <form onSubmit={handleSubmit} name="login">
+    <form className="gavforms" onSubmit={handleSubmit} name="register">
       <label htmlFor="username">Username: </label>
       <input
+        className="gavinputs"
         required
         autoFocus
         type="text"
@@ -63,6 +65,7 @@ export default function Register(props) {
 
       <label htmlFor="password">Password: </label>
       <input
+        className="gavinputs"
         required
         type="password"
         name="password"
@@ -73,6 +76,7 @@ export default function Register(props) {
 
       <label>Recreational or Medical Use: </label>
       <select
+        className="gavinputs"
         name="medicinalUse"
         value={userData.medicinalUse}
         onChange={handleChange}
@@ -87,6 +91,7 @@ export default function Register(props) {
 
       <label htmlFor="tolerance">Tolerance Level: </label>
       <select
+        className="gavinputs"
         name="tolerance"
         value={userData.tolerance}
         onChange={handleChange}
@@ -110,6 +115,7 @@ export default function Register(props) {
 
       <label htmlFor="medicalConditions">Medical Conditions: </label>
       <input
+        className="gavinputs"
         type="text"
         name="medicalConditions"
         placeholder="List anything that should be taken into consideration"
@@ -119,6 +125,7 @@ export default function Register(props) {
 
       <label htmlFor="desiredEffect">Desired Effect: </label>
       <input
+        className="gavinputs"
         type="text"
         name="desiredEffect"
         placeholder="Pain relief, anxiety, depression"
@@ -126,10 +133,12 @@ export default function Register(props) {
         onChange={handleChange}
       />
 
-      <label>I Hereby Certify That I'm Over The Age of 21.</label>
-      <input required type="checkbox" />
+      <label>I Hereby Certify To Being 21+ Years Old.</label>
+      <input className="gavinputs" required type="checkbox" />
 
-      <button name="submit">Register</button>
+      <Button variant="contained" color="primary" type="submit">
+        Register
+      </Button>
       {error && <p>{error}</p>}
     </form>
   );
