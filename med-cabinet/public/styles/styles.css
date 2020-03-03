@@ -1,4 +1,46 @@
 .App {
   text-align: center;
 }
+
+.gavforms {
+  font-family: "Trade Winds";
+  margin: 3% auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid gray;
+  -webkit-box-shadow: -5px -5px 10px black;
+          box-shadow: -5px -5px 10px black;
+  width: 40%;
+  padding: 2%;
+  border-radius: 20px;
+  background: #5fb2d7;
+}
+
+.gavforms .gavinputs {
+  width: 60%;
+  margin: 3% auto;
+  text-align: center;
+}
+
+.gavforms .gavfile {
+  margin: 3% auto;
+  border-radius: 5px;
+  border: 2px solid white;
+  width: 200px;
+}
+
+.gavforms button {
+  width: 200px;
+  margin: 1% auto;
+}
+
+.gavforms textarea {
+  resize: none;
+  width: 75%;
+}
 /*# sourceMappingURL=styles.css.map */

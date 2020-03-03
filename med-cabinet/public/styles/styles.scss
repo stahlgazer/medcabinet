@@ -1,3 +1,35 @@
 .App {
   text-align: center;
 }
+
+.gavforms {
+  font-family: "Trade Winds";
+  margin: 3% auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  box-shadow: -5px -5px 10px rgb(0, 0, 0);
+  width: 40%;
+  padding: 2%;
+  border-radius: 20px;
+  background: #5fb2d7;
+  .gavinputs {
+    width: 60%;
+    margin: 3% auto;
+    text-align: center;
+  }
+  .gavfile {
+    margin: 3% auto;
+    border-radius: 5px;
+    border: 2px solid white;
+    width: 200px;
+  }
+  button {
+    width: 200px;
+    margin: 1% auto;
+  }
+  textarea {
+    resize: none;
+    width: 75%;
+  }
+}
