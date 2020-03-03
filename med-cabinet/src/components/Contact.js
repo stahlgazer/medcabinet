@@ -1,37 +1,50 @@
 import React from "react";
+import { Button } from "@material-ui/core";
 
 export default function Contact(props) {
-    // console.log( 'contact props', props)
+  // console.log( 'contact props', props)
   return (
     <div>
       <form
+        className="gavforms"
         action="https://formspree.io/xgeyzgpb"
         target="_blank"
         method="POST"
         encType="multipart/form-data"
       >
-        <label>Full Name: </label>
+        <label className="gavlabels">Full Name: </label>
         <input
+          className="gavinputs"
           type="text"
           name="name"
           id="full-name"
           placeholder="First and Last"
           required
         />
-        <label>Enter Your Email: </label>
+        <label className="gavlabels">Enter Your Email: </label>
         <input
+          className="gavinputs"
           type="text"
           name="_replyto"
           required
           placeholder="JohnSmith@email.com"
         />
-        <label>Enter Your Message: </label>
-        <input type="text" name="message" required />
+        <label className="gavlabels">Enter Your Message: </label>
+        <textarea
+        placeholder="Feedback, comments, suggestions."
+          cols="7"
+          rows="7"
+          name="message"
+          required
+          className="gavinputs"
+        />
 
-        <label>Attach a file: </label>
-        <input type="file" name="upload" />
+        <label className="gavlabels">Attach a file: </label>
+        <input className="gavfile" type="file" name="upload" />
 
-        <button type="submit">Send</button>
+        <Button variant="contained" color="primary" type="submit">
+          Send
+        </Button>
       </form>
     </div>
   );
