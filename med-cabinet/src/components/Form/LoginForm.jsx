@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Button } from "@material-ui/core";
 
-import { registerHandler } from "../../utils/axiosWithAuth";
+import { loginHandler } from "../../utils/axiosWithAuth";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,30 +32,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const classes = useStyles();
 
   return (
     <Formik
-      initialValues={{ email: "", username: "", password: "" }}
+      initialValues={{ username: "", password: "" }}
       onSubmit={(values, { isSubmitting, resetForm }) => {
-        isSubmitting(true)
         console.log(values);
-        registerHandler(values);
+        loginHandler(values);
         isSubmitting(false)
         resetForm()
       }}
     >
       {({ values, actions, isSubmitting }) => (
         <Form className={classes.inputContainer}>
-          <Field
-            name="email"
-            label="Email"
-            defaultValue='Email'
-            as={TextField}
-            className={classes.inputBox}
-            variant="outlined"
-          />
           <Field
             name="username"
             label="Username"
@@ -77,11 +68,11 @@ const RegisterForm = () => {
             disabled={isSubmitting}
             as={Button}
             variant="contained"
-          > Sign Up </Field>
+          > Login</Field>
         </Form>
       )}
     </Formik>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

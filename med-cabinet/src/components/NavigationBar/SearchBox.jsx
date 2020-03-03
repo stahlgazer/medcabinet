@@ -1,7 +1,6 @@
 import React from 'react'
 import { Formik, Field, Form } from 'formik'
 
-// import SearchIcon from '@material-ui/icons/Search';
 import TextField from "@material-ui/core/TextField";
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
@@ -10,6 +9,11 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
+  },
+  inputContainer: {
+    marginLeft: 30,
+    display: 'flex',
+    justifyContent: 'center',
   },
   search: {
     position: 'relative',
@@ -45,9 +49,9 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: 250,
+      width: 105,
       '&:focus': {
-        width: 276,
+        width: 250,
       },
     },
   },
@@ -56,7 +60,8 @@ const useStyles = makeStyles(theme => ({
 const SearchBox = () => {
   const classes = useStyles();
   return (
-    <div>
+
+    <div className={classes.grow}>
       <Formik
       initialValues={{ search: "" }}
       onSubmit={(values, { isSubmitting, resetForm }) => {

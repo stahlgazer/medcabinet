@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export const REGISTER_URL = "https://build-week-04-med-cabinet.herokuapp.com/api/auth/register";
-export const LOGIN_URL = "https://build-week-04-med-cabinet.herokuapp.com/api/users";
+export const LOGIN_URL = "https://build-week-04-med-cabinet.herokuapp.com/api/auth/login";
 const TEST_MODE = true
 
 
