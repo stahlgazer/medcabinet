@@ -7,6 +7,7 @@ export default function Register(props) {
   const [userData, setUserData] = useState({
     username: "",
     password: "",
+    email: "",
     medicinalUse: false,
     tolerance: 0,
     medicalConditions: "",
@@ -72,6 +73,16 @@ export default function Register(props) {
         value={userData.password}
         onChange={handleChange}
       />
+      <label htmlFor="password">Email: </label>
+      <input
+        className="gavinputs"
+        required
+        type="email"
+        name="email"
+        placeholder="JohnSmith@email.com"
+        value={userData.email}
+        onChange={handleChange}
+      />
       <h3>Preferences can be updated in your Dashboard.</h3>
       <label>Recreational or Medical Use: </label>
       <select
@@ -90,6 +101,7 @@ export default function Register(props) {
 
       <label htmlFor="tolerance">Tolerance Level: </label>
       <select
+        required
         className="gavinputs"
         name="tolerance"
         value={userData.tolerance}
@@ -124,6 +136,7 @@ export default function Register(props) {
 
       <label htmlFor="desiredEffect">Desired Effect: </label>
       <input
+        required
         className="gavinputs"
         type="text"
         name="desiredEffect"
@@ -133,7 +146,7 @@ export default function Register(props) {
       />
 
       <label>I Hereby Certify To Being 21+ Years Old.</label>
-      <input className="gavinputs" required type="checkbox" />
+      <input className="gavinputs checker" required type="checkbox" />
 
       <Button variant="contained" color="primary" type="submit">
         Register
