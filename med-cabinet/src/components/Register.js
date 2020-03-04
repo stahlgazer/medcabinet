@@ -40,7 +40,7 @@ export default function Register(props) {
       )
       .then(response => {
         console.log("Successful Login", response.data);
-        props.history.push("/login");
+        props.history.push("/");
       })
       .catch(err => {
         console.log(err);
