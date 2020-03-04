@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Button } from "@material-ui/core";
+import { addFavorite } from "../actions/index";
+import { deleteFavorite } from "../actions/index";
+import { addSubmit } from "../utils/Submits";
+import { delSubmit } from "../utils/Submits";
+import { connect } from "react-redux";
 
-export default function Dashboard(props) {
+function Dashboard(props) {
   // console.log( 'dashboard props', props)
   const [preferences, setPreferences] = useState({
     id: 0,
@@ -127,6 +132,25 @@ export default function Dashboard(props) {
       </form>
 
       {/* display saved favorites and add delete favorites */}
+
+      {/* test user favorites */}
+      {props.favorites.map(favorite => (
+        <div>
+          <p>{favorite.name}</p>
+          <button>Save Favorite</button>
+          <button onClick={() => props.deleteFavorite()}>Delete Favorite</button>
+        </div>
+      ))}
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    favorites: state.favorites
+  };
+};
+
+export default connect(mapStateToProps, { addFavorite, deleteFavorite })(
+  Dashboard
+);
