@@ -39,26 +39,24 @@ const NavigationBar = props => {
 
   return (
     <div className={classes.root}>
-      {/* <NavLink to='/login' component={Link} >Login</NavLink> */}
-      {/* <NavLink to='/register' component={Link} >Register</NavLink> */}
       <div>
         <Typography className={classes.medTitle}>MEDBAY</Typography>
       </div>
       <SearchBox />
       <div>
-        <NavLink className={classes.links} to="/login" component={Link}>
+        <NavLink className={classes.links} to="/login">
           Login
         </NavLink>
-        <NavLink className={classes.links} to="/register" component={Link}>
+        <NavLink className={classes.links} to="/register">
           Register
         </NavLink>
-        <NavLink className={classes.links} to="/browse" component={Link}>
+        <NavLink className={classes.links} to="/browse">
           Strains
         </NavLink>
-        <NavLink className={classes.links} to="/dashboard" component={Link}>
+        <NavLink className={classes.links} to="/dashboard">
           Dashboard
         </NavLink>
-        <NavLink className={classes.links} to="/contact" component={Link}>
+        <NavLink className={classes.links} to="/contact">
           Contact
         </NavLink>
       </div>

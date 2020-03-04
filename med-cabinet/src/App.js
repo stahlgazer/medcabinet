@@ -6,7 +6,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Browse from "./components/Browse";
 import Dashboard from "./components/Dashboard";
-// import PrivateRoute from "./utils/PrivateRoute";
+import PrivateRoute from "./utils/PrivateRoute";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 
 function App() {
@@ -20,13 +20,10 @@ function App() {
       <Route path="/" component={NavigationBar} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/dashboard" component={Dashboard} />
-      <Route path="/browse" component={Browse} />
       <Route path="/contact" component={Contact} />
 
-      {/* test protected route */}
-      {/* <PrivateRoute path="/contact" component={Contact} />
-      <PrivateRoute path="/browse" component={Browse} /> */}
+      <PrivateRoute path="/dashboard" component={Dashboard} />
+      <PrivateRoute path="/browse" component={Browse} />
     </div>
   );
 }
