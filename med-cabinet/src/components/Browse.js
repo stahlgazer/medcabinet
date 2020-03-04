@@ -5,14 +5,11 @@ import IndividualCard from './IndividualCard';
 import PopularStrains from './PopularStrains';
 import axios from 'axios';
 
-
-
-
-const Browse = () => {
-    
+const Browse = (props) => {
+    // console.log( 'browse props', props)
+  
     const [strain, setStrain] = useState([]);
     
-
     useEffect(() => {
         axios.get('https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/')
              .then(res => {
@@ -24,20 +21,12 @@ const Browse = () => {
              })
       }, [])
     
-    
-    
-    
-    
     return (
         <div>
             <BrowseHeader />
             <BrowseCard strain={strain} setStrain={setStrain}/>
             <IndividualCard />
             <PopularStrains />
-
-          
-     
-            
         </div>
     );
 };
