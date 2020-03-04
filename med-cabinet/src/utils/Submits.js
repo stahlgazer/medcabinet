@@ -1,5 +1,7 @@
 import axiosWithAuth from './axiosWithAuth';
 
+//button functions to add/delete favorites
+
 export const addSubmit = (e, props, elem) => {
     e.preventDefault();
     //post here
