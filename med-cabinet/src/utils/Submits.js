@@ -1,7 +1,7 @@
 import axiosWithAuth from './axiosWithAuth';
 //button functions to add/delete favorites
 
-export const addSubmit = (e, props, elem) => {
+export const addSubmit = (e, elem) => {
     e.preventDefault();
     //post here
     axiosWithAuth()
@@ -12,11 +12,9 @@ export const addSubmit = (e, props, elem) => {
     .catch(error => {
       console.log("added fav error:", error);
     });
-    //action here
-    // props.addFavorite(elem)
 }
 
-export const delSubmit = (e, props, elem) => {
+export const delSubmit = (e, elem) => {
     e.preventDefault();
     //delete here
     axiosWithAuth()
@@ -27,6 +25,4 @@ export const delSubmit = (e, props, elem) => {
     .catch(error => {
       console.log("deleted fav error:", error);
     });
-    //action here
-    // props.deleteFavorite(elem)
 }

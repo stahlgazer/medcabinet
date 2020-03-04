@@ -58,13 +58,27 @@ function Dashboard(props) {
         console.log("update failed for:", preferences, err);
       });
   };
+  const deleteAccount = () => {
+    axiosWithAuth()
+      .delete(`/users/${localStorage.getItem("ID")}`)
+      .then(response => {
+        console.log("deleted user:", response.data);
+      })
+      .catch(error => {
+        console.log("deleted user error:", error);
+      });
+    localStorage.clear();
+    props.history.push("/");
+  };
 
   return (
-    <div>
-      <h2 className="gavforms">{preferences.username} Dashboard</h2>
+    <div className="dashboard">
       <form className="gavforms" onSubmit={handleSubmit} name="register">
+        <h2 className="dashboardname">
+          {preferences.username}'s Dashboard
+        </h2>
         <h3>Update Your Preferences</h3>
-        <label>Recreational or Medical Use: </label>
+        <label>Recreational or Medicinal Use: </label>
         <select
           className="gavinputs"
           name="medicinalUse"
@@ -130,16 +144,34 @@ function Dashboard(props) {
         </Button>
         {error && <p>{error}</p>}
       </form>
-
       {/* display saved favorites and add delete favorites */}
-
       {/* test user favorites */}
-      {props.favorites.map(favorite => (
-        <div key={favorite.id}>
-          <p>{favorite.name}</p>
-          <button onClick={() => props.deleteFavorite(favorite)}>Delete Favorite</button>
-        </div>
-      ))}
+      
+        <h2 className="gavforms">Favorite's List</h2>
+        <div className="favs-container">
+        {props.favorites.map(favorite => (
+          <div className="dashboard-favs" key={favorite.id}>
+            <img alt="favorites" src={favorite.image} />
+            <p>{favorite.name}</p>
+            <p>{favorite.status}</p>
+            <p>{favorite.species}</p>
+            <br/>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => props.deleteFavorite(favorite)}
+            >
+              Delete Favorite
+            </Button>
+          </div>
+        ))}
+      </div>
+      <div className="gavforms">
+        <Button onClick={deleteAccount} variant="contained" color="secondary">
+          Delete Account
+        </Button>
+        <p>Warning: This Is Permanent!</p>
+      </div>
     </div>
   );
 }
