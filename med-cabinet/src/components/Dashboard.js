@@ -20,7 +20,9 @@ useEffect(() => {
 }, [change]);
   return ( 
     <div>
+      {/* create form to update user preferences */}
       {preferences.username}
+      {/* display saved favorites and add delete favorites */}
     </div>
   )
 }

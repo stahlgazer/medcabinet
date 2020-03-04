@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
 // import AppBar from "@material-ui/core/AppBar";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
@@ -59,6 +59,15 @@ const NavigationBar = props => {
         <NavLink className={classes.links} to="/contact">
           Contact
         </NavLink>
+        {/* will link to UI marketing page */}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://google.com"
+          className={classes.links}
+        >
+          Marketing
+        </a>
       </div>
 
       <Avatar className={classes.orange} />
