@@ -51,6 +51,7 @@ export default function Register(props) {
   };
   return (
     <form className="gavforms" onSubmit={handleSubmit} name="register">
+      <h3>Register Account</h3>
       <label htmlFor="username">Username: </label>
       <input
         className="gavinputs"
@@ -83,7 +84,7 @@ export default function Register(props) {
         value={userData.email}
         onChange={handleChange}
       />
-      <h3>Preferences can be updated in your Dashboard.</h3>
+      <h4>Preferences can be updated in your Dashboard.</h4>
       <label>Recreational or Medical Use: </label>
       <select
         className="gavinputs"

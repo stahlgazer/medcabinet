@@ -44,7 +44,7 @@ const NavigationBar = props => {
       </div>
       <SearchBox />
       <div>
-        <NavLink className={classes.links} to="/login">
+        <NavLink className={classes.links} to="/">
           Login
         </NavLink>
         <NavLink className={classes.links} to="/register">
