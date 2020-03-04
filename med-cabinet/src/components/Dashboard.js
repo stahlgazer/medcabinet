@@ -3,8 +3,8 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { Button } from "@material-ui/core";
 import { addFavorite } from "../actions/index";
 import { deleteFavorite } from "../actions/index";
-import { addSubmit } from "../utils/Submits";
-import { delSubmit } from "../utils/Submits";
+// import { addSubmit } from "../utils/Submits";
+// import { delSubmit } from "../utils/Submits";
 import { connect } from "react-redux";
 
 function Dashboard(props) {
@@ -135,10 +135,9 @@ function Dashboard(props) {
 
       {/* test user favorites */}
       {props.favorites.map(favorite => (
-        <div>
+        <div key={favorite.id}>
           <p>{favorite.name}</p>
-          <button>Save Favorite</button>
-          <button onClick={() => props.deleteFavorite()}>Delete Favorite</button>
+          <button onClick={() => props.deleteFavorite(favorite)}>Delete Favorite</button>
         </div>
       ))}
     </div>

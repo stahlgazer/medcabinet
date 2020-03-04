@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 import styled from 'styled-components';
 import { addFavorite } from "../actions/index";
-import { addSubmit } from "../utils/Submits";
+// import { addSubmit } from "../utils/Submits";
 import { connect } from "react-redux";
 
 const NewCard = styled(Card)`
