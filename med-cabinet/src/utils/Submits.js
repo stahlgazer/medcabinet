@@ -6,13 +6,14 @@ export const addSubmit = (e, props, elem) => {
     e.preventDefault();
     //post here
     axiosWithAuth()
-    .post(`/users/${localStorage.getItem('ID')}`, elem)
+    .post(`/users/${localStorage.getItem('ID')}/favs`, elem)
     .then(response => {
-      console.log("user data put:", response.data);
+      console.log("added fav:", response.data);
     })
     .catch(error => {
-      console.log("user data put:", error);
+      console.log("added fav error:", error);
     });
+    //action here
     props.addFavorite(elem)
 }
 
@@ -20,12 +21,13 @@ export const delSubmit = (e, props, elem) => {
     e.preventDefault();
     //delete here
     axiosWithAuth()
-    .delete(`/users/${localStorage.getItem('ID')}`, elem)
+    .delete(`/favs/${elem.id}`, elem)
     .then(response => {
-      console.log("user data put:", response.data);
+      console.log("deleted fav:", response.data);
     })
     .catch(error => {
-      console.log("user data put:", error);
+      console.log("deleted fav error:", error);
     });
+    //action here
     props.removeFavorite(elem)
 }
