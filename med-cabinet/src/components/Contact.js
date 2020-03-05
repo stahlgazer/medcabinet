@@ -32,7 +32,7 @@ export default function Contact(props) {
         />
         <label className="gavlabels">Enter Your Message: </label>
         <textarea
-        placeholder="Feedback, comments, suggestions."
+          placeholder="Feedback, Issues, Suggestions."
           cols="7"
           rows="7"
           name="message"

@@ -33,17 +33,22 @@ export default function Testcode(props) {
   //     [event.target.name]: event.target.value
   //   });
   // };
-  // axiosWithAuth()
+
+
+
+  //post request for ds api information
+
+    //   const rec = "test recommendation"
+  // axios
   //   .post(
-  //     `https://cors-anywhere.herokuapp.com/https://med-cab-app.herokuapp.com/test`,
-  //     recommendation
+  //     `https://cors-anywhere.herokuapp.com/https://med-cab-app.herokuapp.com`,
+  //     rec
   //   )
   //   .then(response => {
-  //     console.log(response.data);
-  //     setResults(response.data);
+  //     console.log("ds api response", response);
   //   })
   //   .catch(error => {
-  //     console.log(error);
+  //     console.log("ds api error", error);
   //   });
 
   return <div></div>;

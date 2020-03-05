@@ -11,6 +11,7 @@ import styled from "styled-components";
 import { addFavorite } from "../actions/index";
 import { connect } from "react-redux";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import axios from "axios";
 
 const NewCard = styled(Card)`
   width: 30%;
@@ -36,7 +37,7 @@ const BrowseButton = styled.button`
 
 const BrowseCard = props => {
   const addSubmit = elem => {
-    //post here
+    // post favorite here
     axiosWithAuth()
       .post(`/users/${localStorage.getItem("ID")}/favs`, elem)
       .then(response => {
