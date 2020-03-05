@@ -33,3 +33,35 @@
     width: 75%;
   }
 }
+
+.dashboard {
+  .delete {
+    width: 200px;
+    margin-right: 85%;
+  }
+  .dashboardname {
+    margin: 0 auto;
+  }
+}
+.favs-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  .dashboard-favs {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 2% 2%;
+    border: 1px solid gray;
+    box-shadow: -5px -5px 5px gray;
+    border-radius: 10px;
+    button {
+      width: 200px;
+      margin: 0 auto;
+      margin-bottom: 25px;
+    }
+    img {
+      display: block;
+    }
+  }
+}

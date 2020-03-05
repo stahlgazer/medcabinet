@@ -59,11 +59,10 @@ const NavigationBar = props => {
         <NavLink className={classes.links} to="/contact">
           Contact
         </NavLink>
-        {/* will link to UI marketing page */}
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="http://google.com"
+          href="https://build-week-med-cabinet-3.github.io/User-Interface/"
           className={classes.links}
         >
           Marketing

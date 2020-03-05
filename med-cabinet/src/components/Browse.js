@@ -4,6 +4,9 @@ import BrowseHeader from './BrowseHeader';
 import IndividualCard from './IndividualCard';
 import PopularStrains from './PopularStrains';
 import axios from 'axios';
+import { addFavorite } from "../actions/index";
+import { addSubmit } from "../utils/Submits";
+import { connect } from "react-redux";
 
 const Browse = (props) => {
     // console.log( 'browse props', props)
@@ -31,4 +34,10 @@ const Browse = (props) => {
     );
 };
 
-export default Browse;
+const mapStateToProps = state => {
+  return {
+  favorites: state.favorites,
+  };
+};
+
+export default connect(mapStateToProps, { addFavorite })(Browse);

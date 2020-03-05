@@ -4,6 +4,9 @@ import {
   CardTitle, CardSubtitle,
 } from 'reactstrap';
 import styled from 'styled-components';
+import { addFavorite } from "../actions/index";
+// import { addSubmit } from "../utils/Submits";
+import { connect } from "react-redux";
 
 const NewCard = styled(Card)`
   width: 30%;
@@ -27,7 +30,7 @@ const BrowseButton = styled.button`
   background-color: #2f5973;
 `;
 
-const IndividualCard = (props) => {
+const BrowseCard = (props) => {
     return (
         <NewDiv >
           {props.strain.map((elem, i) => (
@@ -38,7 +41,7 @@ const IndividualCard = (props) => {
               <CardSubtitle>Strain: {elem.species}</CardSubtitle>
               <CardText>Hybrid/Sativa: {elem.gender}</CardText>
             </NewCardBody>
-          <BrowseButton type='button'>Favorite</BrowseButton>
+          <BrowseButton type='button' onClick={() => props.addFavorite(elem)}>Favorite</BrowseButton>
           <BrowseButton type='button'>Share</BrowseButton>
           </NewCard>
           ))}
@@ -46,4 +49,10 @@ const IndividualCard = (props) => {
       );
 };
 
-export default IndividualCard;
+const mapStateToProps = state => {
+  return {
+  favorites: state.favorites,
+  };
+};
+
+export default connect(mapStateToProps, { addFavorite })(BrowseCard);

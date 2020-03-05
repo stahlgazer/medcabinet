@@ -1,21 +1,28 @@
 import axiosWithAuth from './axiosWithAuth';
+//button functions to add/delete favorites
 
-export const addSubmit = (e, props, elem) => {
+export const addSubmit = (e, elem) => {
     e.preventDefault();
     //post here
     axiosWithAuth()
-    .post(`/users/${localStorage.getItem('ID')}`, elem)
+    .post(`/users/${localStorage.getItem('ID')}/favs`, elem)
     .then(response => {
-      console.log("user data put:", response.data);
+      console.log("added fav:", response.data);
     })
     .catch(error => {
-      console.log("user data put:", error);
+      console.log("added fav error:", error);
     });
-    props.addFavorite(elem)
 }
 
-export const delSubmit = (e, props, elem) => {
+export const delSubmit = (e, elem) => {
     e.preventDefault();
     //delete here
-    props.removeFavorite(elem)
+    axiosWithAuth()
+    .delete(`/favs/${elem.id}`, elem)
+    .then(response => {
+      console.log("deleted fav:", response.data);
+    })
+    .catch(error => {
+      console.log("deleted fav error:", error);
+    });
 }

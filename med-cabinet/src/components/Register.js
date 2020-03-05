@@ -21,10 +21,8 @@ export default function Register(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-
     userData.tolerance = Number(userData.tolerance);
     // console.log(userData.tolerance);
-
     if (userData.medicinalUse === "true") {
       userData.medicinalUse = true;
     } else {
