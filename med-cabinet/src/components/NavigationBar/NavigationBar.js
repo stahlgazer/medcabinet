@@ -59,14 +59,6 @@ const NavigationBar = props => {
         <NavLink className={classes.links} to="/contact">
           Contact
         </NavLink>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://build-week-med-cabinet-3.github.io/User-Interface/"
-          className={classes.links}
-        >
-          Marketing
-        </a>
       </div>
 
       <Avatar className={classes.orange} />

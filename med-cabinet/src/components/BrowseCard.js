@@ -35,7 +35,6 @@ const BrowseButton = styled.button`
 `;
 
 const BrowseCard = props => {
-  
   const addSubmit = elem => {
     //post here
     axiosWithAuth()

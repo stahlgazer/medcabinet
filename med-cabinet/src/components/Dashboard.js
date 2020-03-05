@@ -55,6 +55,7 @@ function Dashboard(props) {
         console.log(err);
         console.log("update failed for:", preferences, err);
       });
+      
   };
   const deleteAccount = () => {
     axiosWithAuth()
@@ -104,7 +105,7 @@ function Dashboard(props) {
                 delSubmit(favorite);
               }}
             >
-              Delete Favorite
+              Remove
             </Button>
           </div>
         ))}
