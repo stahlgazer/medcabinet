@@ -3,8 +3,6 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { Button } from "@material-ui/core";
 import { addFavorite } from "../actions/index";
 import { deleteFavorite } from "../actions/index";
-// import { addSubmit } from "../utils/Submits";
-// import { delSubmit } from "../utils/Submits";
 import { connect } from "react-redux";
 
 function Dashboard(props) {
@@ -71,12 +69,22 @@ function Dashboard(props) {
     props.history.push("/");
   };
 
+  const delSubmit = favorite => {
+    //delete here
+    axiosWithAuth()
+      .delete(`/favs/${favorite.id}`, favorite)
+      .then(response => {
+        console.log("deleted submit:", response.data);
+      })
+      .catch(error => {
+        console.log("deleted submit error:", error);
+      });
+  };
+
   return (
     <div className="dashboard">
       <form className="gavforms" onSubmit={handleSubmit} name="register">
-        <h2 className="dashboardname">
-          {preferences.username}'s Dashboard
-        </h2>
+        <h2 className="dashboardname">{preferences.username}'s Dashboard</h2>
         <h3>Update Your Preferences</h3>
         <label>Recreational or Medicinal Use: </label>
         <select
@@ -146,20 +154,23 @@ function Dashboard(props) {
       </form>
       {/* display saved favorites and add delete favorites */}
       {/* test user favorites */}
-      
-        <h2 className="gavforms">Favorite's List</h2>
-        <div className="favs-container">
+
+      <h2 className="gavforms">Favorite's List</h2>
+      <div className="favs-container">
         {props.favorites.map(favorite => (
           <div className="dashboard-favs">
             <img alt="favorites" src={favorite.image} />
             <p>{favorite.name}</p>
             <p>{favorite.status}</p>
             <p>{favorite.species}</p>
-            <br/>
+            <br />
             <Button
               variant="contained"
               color="secondary"
-              onClick={() => props.deleteFavorite(favorite)}
+              onClick={() => {
+                props.deleteFavorite(favorite);
+                delSubmit(favorite);
+              }}
             >
               Delete Favorite
             </Button>
