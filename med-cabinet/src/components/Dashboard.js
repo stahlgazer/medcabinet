@@ -55,7 +55,6 @@ function Dashboard(props) {
         console.log(err);
         console.log("update failed for:", preferences, err);
       });
-      
   };
   const deleteAccount = () => {
     axiosWithAuth()
