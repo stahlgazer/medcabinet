@@ -3,8 +3,6 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { Button } from "@material-ui/core";
 import { addFavorite } from "../actions/index";
 import { deleteFavorite } from "../actions/index";
-// import { addSubmit } from "../utils/Submits";
-// import { delSubmit } from "../utils/Submits";
 import { connect } from "react-redux";
 
 function Dashboard(props) {
@@ -57,6 +55,7 @@ function Dashboard(props) {
         console.log(err);
         console.log("update failed for:", preferences, err);
       });
+      
   };
   const deleteAccount = () => {
     axiosWithAuth()
@@ -71,12 +70,47 @@ function Dashboard(props) {
     props.history.push("/");
   };
 
+  const delSubmit = favorite => {
+    //delete here
+    axiosWithAuth()
+      .delete(`/favs/${favorite.id}`, favorite)
+      .then(response => {
+        console.log("deleted submit:", response);
+      })
+      .catch(error => {
+        console.log("deleted submit error:", error);
+      });
+  };
+
   return (
     <div className="dashboard">
+      {/* display saved favorites and add delete favorites */}
+      <div className="gavforms ">
+        <h2 className="dashtitle">{preferences.username}'s Dashboard</h2>
+        <h3 className="dashtitle">Favorites List</h3>
+      </div>
+      <div className="favs-container">
+        {props.favorites.map(favorite => (
+          <div className="dashboard-favs">
+            <img alt="favorites" src={favorite.image} />
+            <p>{favorite.name}</p>
+            <p>{favorite.status}</p>
+            <p>{favorite.species}</p>
+            <br />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                props.deleteFavorite(favorite);
+                delSubmit(favorite);
+              }}
+            >
+              Remove
+            </Button>
+          </div>
+        ))}
+      </div>
       <form className="gavforms" onSubmit={handleSubmit} name="register">
-        <h2 className="dashboardname">
-          {preferences.username}'s Dashboard
-        </h2>
         <h3>Update Your Preferences</h3>
         <label>Recreational or Medicinal Use: </label>
         <select
@@ -144,28 +178,7 @@ function Dashboard(props) {
         </Button>
         {error && <p>{error}</p>}
       </form>
-      {/* display saved favorites and add delete favorites */}
-      {/* test user favorites */}
-      
-        <h2 className="gavforms">Favorite's List</h2>
-        <div className="favs-container">
-        {props.favorites.map(favorite => (
-          <div className="dashboard-favs">
-            <img alt="favorites" src={favorite.image} />
-            <p>{favorite.name}</p>
-            <p>{favorite.status}</p>
-            <p>{favorite.species}</p>
-            <br/>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => props.deleteFavorite(favorite)}
-            >
-              Delete Favorite
-            </Button>
-          </div>
-        ))}
-      </div>
+
       <div className="gavforms">
         <Button onClick={deleteAccount} variant="contained" color="secondary">
           Delete Account
