@@ -44,17 +44,25 @@
   }
 }
 .favs-container {
+  font-family:'Trade Winds';
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   .dashboard-favs {
+    background-image:linear-gradient(#2F5973, white, #5FB2D7);
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 25%;
     margin: 2% 2% auto;
     border: 1px solid gray;
     box-shadow: -5px -5px 5px gray;
     border-radius: 10px;
+    padding:2%;
+    img{
+      height:300px;
+      width:350px;
+      margin:0 auto;
+    }
     button {
       width: 150px;
       margin: 0 auto;

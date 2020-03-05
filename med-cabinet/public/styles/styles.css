@@ -54,6 +54,7 @@
 }
 
 .favs-container {
+  font-family: 'Trade Winds';
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,6 +64,8 @@
 }
 
 .favs-container .dashboard-favs {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2F5973), color-stop(white), to(#5FB2D7));
+  background-image: linear-gradient(#2F5973, white, #5FB2D7);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,12 +73,19 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 20%;
+  width: 25%;
   margin: 2% 2% auto;
   border: 1px solid gray;
   -webkit-box-shadow: -5px -5px 5px gray;
           box-shadow: -5px -5px 5px gray;
   border-radius: 10px;
+  padding: 2%;
+}
+
+.favs-container .dashboard-favs img {
+  height: 300px;
+  width: 350px;
+  margin: 0 auto;
 }
 
 .favs-container .dashboard-favs button {

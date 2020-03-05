@@ -1,39 +1,40 @@
 import React from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle
-} from "reactstrap";
-import styled from "styled-components";
+// import {
+//   Card,
+//   CardImg,
+//   CardText,
+//   CardBody,
+//   CardTitle,
+//   CardSubtitle
+// } from "reactstrap";
+import {Button} from '@material-ui/core';
+// import styled from "styled-components";
 import { addFavorite } from "../actions/index";
 import { connect } from "react-redux";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import axios from "axios";
+// import axios from "axios";
 
-const NewCard = styled(Card)`
-  width: 30%;
-  margin: 1%;
-`;
+// const NewCard = styled(Card)`
+//   width: 30%;
+//   margin: 1%;
+// `;
 
-const NewDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
+// const NewDiv = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+// `;
 
-const NewCardBody = styled(CardBody)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+// const NewCardBody = styled(CardBody)`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `;
 
-const BrowseButton = styled.button`
-  width: 30%;
-  color: white;
-  background-color: #2f5973;
-`;
+// const BrowseButton = styled.button`
+//   width: 30%;
+//   color: white;
+//   background-color: #2f5973;
+// `;
 
 const BrowseCard = props => {
   const addSubmit = elem => {
@@ -50,15 +51,46 @@ const BrowseCard = props => {
 
   return (
     <>
+         <div className="favs-container">
+        {props.strain.map((elem, i) => (
+          <div key={i} className="dashboard-favs">
+            <img alt={elem.name} src={require('../img/botanical-rising-ierZlNiWba0-unsplash.jpg')} />
+            <p>Strain: {elem.Strain}</p>
+            <p>Type: {elem.Type}</p>
+            <p>Flavors: {elem.Flavor}</p>
+            <p>Effects: {elem.Effects}</p>
+            <p>Description: {elem.Description}</p>
+            <br />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                props.addFavorite(elem);
+                addSubmit(elem);
+              }}
+            >
+              Add Favorite
+            </Button>
+          </div>
+        ))}
+      </div>
       {/* string form here */}
-      <NewDiv>
+      
+    </>
+  );
+};
+
+/* 
+<NewDiv>
         {props.strain.map((elem, i) => (
           <NewCard key={i}>
-            <CardImg top width="100%" src={elem.image} alt={elem.name} />
+            <CardImg top width="100%" src={require('../img/botanical-rising-ierZlNiWba0-unsplash.jpg')} alt={elem.name} />
             <NewCardBody>
-              <CardTitle>{elem.name}</CardTitle>
-              <CardSubtitle>Strain: {elem.species}</CardSubtitle>
-              <CardText>Hybrid/Sativa: {elem.gender}</CardText>
+            <CardTitle>Strain: {elem.Strain}</CardTitle>
+              <CardSubtitle>Type: {elem.Type}</CardSubtitle>
+              <CardText>Flavors: {elem.Flavor}</CardText>
+              <CardText>Effects: {elem.Effects}</CardText>
+              <CardText>Description: {elem.Description}</CardText>
             </NewCardBody>
             <BrowseButton
               type="button"
@@ -73,9 +105,7 @@ const BrowseCard = props => {
           </NewCard>
         ))}
       </NewDiv>
-    </>
-  );
-};
+*/
 
 const mapStateToProps = state => {
   return {
