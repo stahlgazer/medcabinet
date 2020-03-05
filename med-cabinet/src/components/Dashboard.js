@@ -74,7 +74,7 @@ function Dashboard(props) {
     axiosWithAuth()
       .delete(`/favs/${favorite.id}`, favorite)
       .then(response => {
-        console.log("deleted submit:", response.data);
+        console.log("deleted submit:", response);
       })
       .catch(error => {
         console.log("deleted submit error:", error);
@@ -83,8 +83,33 @@ function Dashboard(props) {
 
   return (
     <div className="dashboard">
+      {/* display saved favorites and add delete favorites */}
+      <div className="gavforms ">
+        <h2 className="dashtitle">{preferences.username}'s Dashboard</h2>
+        <h3 className="dashtitle">Favorites List</h3>
+      </div>
+      <div className="favs-container">
+        {props.favorites.map(favorite => (
+          <div className="dashboard-favs">
+            <img alt="favorites" src={favorite.image} />
+            <p>{favorite.name}</p>
+            <p>{favorite.status}</p>
+            <p>{favorite.species}</p>
+            <br />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                props.deleteFavorite(favorite);
+                delSubmit(favorite);
+              }}
+            >
+              Delete Favorite
+            </Button>
+          </div>
+        ))}
+      </div>
       <form className="gavforms" onSubmit={handleSubmit} name="register">
-        <h2 className="dashboardname">{preferences.username}'s Dashboard</h2>
         <h3>Update Your Preferences</h3>
         <label>Recreational or Medicinal Use: </label>
         <select
@@ -152,31 +177,7 @@ function Dashboard(props) {
         </Button>
         {error && <p>{error}</p>}
       </form>
-      {/* display saved favorites and add delete favorites */}
-      {/* test user favorites */}
 
-      <h2 className="gavforms">Favorite's List</h2>
-      <div className="favs-container">
-        {props.favorites.map(favorite => (
-          <div className="dashboard-favs">
-            <img alt="favorites" src={favorite.image} />
-            <p>{favorite.name}</p>
-            <p>{favorite.status}</p>
-            <p>{favorite.species}</p>
-            <br />
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => {
-                props.deleteFavorite(favorite);
-                delSubmit(favorite);
-              }}
-            >
-              Delete Favorite
-            </Button>
-          </div>
-        ))}
-      </div>
       <div className="gavforms">
         <Button onClick={deleteAccount} variant="contained" color="secondary">
           Delete Account

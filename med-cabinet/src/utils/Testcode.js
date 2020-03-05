@@ -4,6 +4,7 @@ import React from "react";
 export default function Testcode(props) {
   console.log("register props", props);
 
+  //        grabbing current user
   // axiosWithAuth()
   //   .get(`/users/${localStorage.getItem('ID')}`)
   //   .then(response => {
@@ -13,7 +14,17 @@ export default function Testcode(props) {
   //     console.log(error);
   //   });
 
-  // code for retrieving recommendations
+  //        recommendations from backend
+  // axiosWithAuth()
+  //   .get(`recs`)
+  //   .then(response => {
+  //     console.log('recommendations:', response);
+  //   })
+  //   .catch(error => {
+  //     console.log('recommendations error:', error);
+  //   });
+
+  //      retrieving recommendations from ds
   // const [recommendation, setRecommendation] = useState("");
   // const [results, setResults] = useState([]);
   // const handleChange = event => {

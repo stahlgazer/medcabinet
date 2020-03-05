@@ -39,8 +39,8 @@
     width: 200px;
     margin-right: 85%;
   }
-  .dashboardname {
-    margin: 0 auto;
+  .dashtitle {
+    margin:1%;
   }
 }
 .favs-container {
@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-    margin: 2% 2%;
+    margin: 2% 2% auto;
     border: 1px solid gray;
     box-shadow: -5px -5px 5px gray;
     border-radius: 10px;
