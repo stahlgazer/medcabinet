@@ -150,7 +150,7 @@ function Dashboard(props) {
         <h2 className="gavforms">Favorite's List</h2>
         <div className="favs-container">
         {props.favorites.map(favorite => (
-          <div className="dashboard-favs" key={favorite.id}>
+          <div className="dashboard-favs">
             <img alt="favorites" src={favorite.image} />
             <p>{favorite.name}</p>
             <p>{favorite.status}</p>

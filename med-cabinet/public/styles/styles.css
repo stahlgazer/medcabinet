@@ -73,9 +73,9 @@
   width: 20%;
   margin: 2% 2%;
   border: 1px solid gray;
-  -webkit-box-shadow: 5px 5px 5px gray;
-          box-shadow: 5px 5px 5px gray;
-  border-radius: 5px;
+  -webkit-box-shadow: -5px -5px 5px gray;
+          box-shadow: -5px -5px 5px gray;
+  border-radius: 10px;
 }
 
 .favs-container .dashboard-favs button {
