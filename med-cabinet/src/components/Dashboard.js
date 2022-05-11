@@ -92,11 +92,11 @@ function Dashboard(props) {
         {props.favorites.map(favorite => (
           <div className="dashboard-favs">
             <img alt={favorite.name} src={require('../img/botanical-rising-ierZlNiWba0-unsplash.jpg')} />
-            <p>Strain: {favorite.Strain}</p>
-            <p>Type: {favorite.Type}</p>
-            <p>Flavors: {favorite.Flavor}</p>
-            <p>Effects: {favorite.Effects}</p>
-            <p>Description: {favorite.Description}</p>
+            <p><b>Strain:</b> {favorite.Strain}</p>
+            <p><b>Type:</b> {favorite.Type}</p>
+            <p><b>Flavors:</b> {favorite.Flavor}</p>
+            <p><b>Effects:</b> {favorite.Effects}</p>
+            <p><b>Description:</b> {favorite.Description}</p>
             <br />
             <Button
               variant="contained"

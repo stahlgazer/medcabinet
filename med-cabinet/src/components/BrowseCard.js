@@ -7,7 +7,7 @@ import React from "react";
 //   CardTitle,
 //   CardSubtitle
 // } from "reactstrap";
-import {Button} from '@material-ui/core';
+import { Button } from "@material-ui/core";
 // import styled from "styled-components";
 import { addFavorite } from "../actions/index";
 import { connect } from "react-redux";
@@ -36,30 +36,33 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 //   background-color: #2f5973;
 // `;
 
-const BrowseCard = props => {
-  const addSubmit = elem => {
+const BrowseCard = (props) => {
+  const addSubmit = (elem) => {
     // post favorite here
     axiosWithAuth()
       .post(`/users/${localStorage.getItem("ID")}/favs`, elem)
-      .then(response => {
+      .then((response) => {
         console.log("added fav:", response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("added fav error:", error);
       });
   };
 
   return (
     <>
-         <div className="favs-container">
+      <div className="favs-container">
         {props.strain.map((elem, i) => (
           <div key={i} className="dashboard-favs">
-            <img alt={elem.name} src={require('../img/botanical-rising-ierZlNiWba0-unsplash.jpg')} />
-            <p>Strain: {elem.Strain}</p>
-            <p>Type: {elem.Type}</p>
-            <p>Flavors: {elem.Flavor}</p>
-            <p>Effects: {elem.Effects}</p>
-            <p>Description: {elem.Description}</p>
+            <img
+              alt={elem.name}
+              src={require("../img/botanical-rising-ierZlNiWba0-unsplash.jpg")}
+            />
+            <p><b>Strain:</b> {elem.Strain}</p>
+            <p><b>Type: </b>{elem.Type}</p>
+            <p><b>Flavors: </b>{elem.Flavor}</p>
+            <p><b>Effects: </b>{elem.Effects}</p>
+            <p className="descriptions"><b>Description: </b>{elem.Description}</p>
             <br />
             <Button
               variant="contained"
@@ -75,7 +78,6 @@ const BrowseCard = props => {
         ))}
       </div>
       {/* string form here */}
-      
     </>
   );
 };
@@ -107,9 +109,9 @@ const BrowseCard = props => {
       </NewDiv>
 */
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    favorites: state.favorites
+    favorites: state.favorites,
   };
 };
 

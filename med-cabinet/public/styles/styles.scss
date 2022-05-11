@@ -3,7 +3,7 @@
 }
 
 .gavforms {
-  font-family: "Trade Winds";
+  font-family: "Questrial", sans-serif;
   margin: 3% auto;
   display: flex;
   flex-direction: column;
@@ -44,32 +44,43 @@
   }
 }
 .favs-container {
-  font-family:'Trade Winds';
+  font-family: "Questrial", sans-serif;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   .dashboard-favs {
     background-image:linear-gradient(#2F5973, white, #5FB2D7);
     display: flex;
     flex-direction: column;
-    width: 25%;
-    margin: 2% 2% auto;
+    justify-content: left;
+    align-items:left;
+    align-self:left;
+    justify-self:last baseline;
+    align-content:left;
+    justify-items: left;
+    justify-self: left;
+    max-width: 25%;
+    max-height:700px;
+    margin: 2% 2%;
     border: 1px solid gray;
     box-shadow: -5px -5px 5px gray;
     border-radius: 10px;
     padding:2%;
+
     img{
-      height:300px;
-      width:350px;
+      max-height:200px;
+      max-width:200px;
       margin:0 auto;
+      display: block;
+    }
+    p {
+      text-align:left;
     }
     button {
-      width: 150px;
-      margin: 0 auto;
-      margin-bottom: 25px;
+      width: 200px;
+      margin: 1% center;
     }
-    img {
-      display: block;
+    .descriptions{
+      height:150px;
     }
   }
 }

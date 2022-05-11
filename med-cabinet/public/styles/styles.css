@@ -3,7 +3,7 @@
 }
 
 .gavforms {
-  font-family: "Trade Winds";
+  font-family: "Questrial", sans-serif;
   margin: 3% auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,13 +54,12 @@
 }
 
 .favs-container {
-  font-family: 'Trade Winds';
+  font-family: "Questrial", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 100%;
 }
 
 .favs-container .dashboard-favs {
@@ -73,8 +72,22 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 25%;
-  margin: 2% 2% auto;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -ms-flex-item-align: left;
+      align-self: left;
+  justify-self: last baseline;
+  -ms-flex-line-pack: left;
+      align-content: left;
+  justify-items: left;
+  justify-self: left;
+  max-width: 25%;
+  max-height: 700px;
+  margin: 2% 2%;
   border: 1px solid gray;
   -webkit-box-shadow: -5px -5px 5px gray;
           box-shadow: -5px -5px 5px gray;
@@ -83,18 +96,22 @@
 }
 
 .favs-container .dashboard-favs img {
-  height: 300px;
-  width: 350px;
+  max-height: 200px;
+  max-width: 200px;
   margin: 0 auto;
+  display: block;
+}
+
+.favs-container .dashboard-favs p {
+  text-align: left;
 }
 
 .favs-container .dashboard-favs button {
-  width: 150px;
-  margin: 0 auto;
-  margin-bottom: 25px;
+  width: 200px;
+  margin: 1% center;
 }
 
-.favs-container .dashboard-favs img {
-  display: block;
+.favs-container .dashboard-favs .descriptions {
+  height: 150px;
 }
 /*# sourceMappingURL=styles.css.map */
