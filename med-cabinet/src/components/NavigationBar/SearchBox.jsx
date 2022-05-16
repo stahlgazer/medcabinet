@@ -1,5 +1,5 @@
 import React from 'react'
-import { Formik, Field, Form } from 'formik'
+import { Formik, Form } from 'formik'
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
