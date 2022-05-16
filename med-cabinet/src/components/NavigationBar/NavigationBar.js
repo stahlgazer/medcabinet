@@ -1,7 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import Link from "@material-ui/core/Link";
-// import AppBar from "@material-ui/core/AppBar";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
 import { deepOrange } from "@material-ui/core/colors";

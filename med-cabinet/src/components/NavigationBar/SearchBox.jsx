@@ -1,6 +1,5 @@
 import React from 'react'
 import { Formik, Field, Form } from 'formik'
-// import TextField from "@material-ui/core/TextField";
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -36,11 +35,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    // color: 'black',
   },
   inputRoot: {
     color: 'inherit',
-    // background: '#e0e0e0',
     borderRadius: 15,
   },
   inputInput: {

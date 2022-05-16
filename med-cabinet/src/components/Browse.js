@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import BrowseCard from './BrowseCard';
-// import IndividualCard from './IndividualCard';
-// import PopularStrains from './PopularStrains';
 import axios from 'axios';
 import { addFavorite } from "../actions/index";
 import { connect } from "react-redux";
@@ -39,8 +37,6 @@ const Browse = (props) => {
     return (
         <div>
             <BrowseCard strain={strain} setStrain={setStrain}/>
-            {/* <IndividualCard />
-            <PopularStrains /> */}
         </div>
     );
 };
