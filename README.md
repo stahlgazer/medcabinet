@@ -1,1 +1,1 @@
-# Front-End
+Welcome to MedCabinet, where users can find appropriate strains of medical marijuana based on their preferences. This app was made with the help of Data Science teamates to create recommendations. The front-end is built with react/sass while the back-end is using node.js.
