@@ -1,49 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import BrowseCard from './BrowseCard';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import BrowseCard from "./BrowseCard";
+import axios from "axios";
 import { addFavorite } from "../actions/index";
 import { connect } from "react-redux";
-import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { CircularProgress } from "@material-ui/core";
 
 const Browse = (props) => {
-    // console.log( 'browse props', props)
-    const [strain, setStrain] = useState([]);
-    const [user, setUser] = useState([]);
+  const [strain, setStrain] = useState([]);
+  const [user, setUser] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-      axiosWithAuth()
-        .get(`/users/${localStorage.getItem('ID')}`)
-        .then(res => {
-          console.log(res.data);
-          setUser(res.data);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }, []);
-  
-    useEffect(() => {
-      axios
-        .post(`https://med-cab-app.herokuapp.com/test`, JSON.stringify(user.desiredEffect))
-        .then(res => {
-          console.log(res.data);
-          setStrain(res.data);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }, [user.desiredEffect]);
-    
-    return (
-        <div>
-            <BrowseCard strain={strain} setStrain={setStrain}/>
-        </div>
-    );
+  useEffect(() => {
+    setIsLoading(true);
+    axiosWithAuth()
+      .get(`/users/${localStorage.getItem("ID")}`)
+      .then((res) => {
+        console.log(res.data);
+        setUser(res.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .post(
+        `https://med-cab-app.herokuapp.com/test`,
+        JSON.stringify(user.desiredEffect)
+      )
+      .then((res) => {
+        console.log(res.data);
+        setStrain(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [user.desiredEffect]);
+
+  return (
+    <div>
+      {isLoading ? <CircularProgress style={{ margin: "auto", padding: '5%'}} /> :
+        <BrowseCard strain={strain} setStrain={setStrain} />
+      }
+    </div>
+  );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-  favorites: state.favorites,
+    favorites: state.favorites,
   };
 };
 
