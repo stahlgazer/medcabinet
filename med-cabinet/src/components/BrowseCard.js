@@ -6,9 +6,9 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 const BrowseCard = (props) => {
   const addSubmit = (elem) => {
-    // post favorite here
     axiosWithAuth()
-      .post(`/users/${localStorage.getItem("ID")}/favs`, elem)
+    // change to session storage
+      .post(`/users/${sessionStorage.getItem("ID")}/favs`, elem)
       .then((response) => {
         console.log("added fav:", response.data);
       })

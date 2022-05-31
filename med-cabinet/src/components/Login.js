@@ -3,7 +3,6 @@ import axios from "axios";
 import { Button, CircularProgress } from "@material-ui/core";
 
 export default function Login(props) {
-  // console.log( 'login props', props)
   const [userData, setUserData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -22,8 +21,9 @@ export default function Login(props) {
       )
       .then((response) => {
         console.log("Successful Login", response);
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("ID", response.data.userID);
+        // change to session storage
+        sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("ID", response.data.userID);
         props.history.push("/browse");
         setIsLoading(false);
       })

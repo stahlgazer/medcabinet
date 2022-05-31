@@ -1,10 +1,12 @@
+
 import axios from "axios";
 
 const axiosWithAuth = () => {
   return axios.create({
     baseURL: "https://build-week-04-med-cabinet.herokuapp.com/api",
     headers: {
-      Authorization: localStorage.getItem("token")
+      // change to session storage
+      Authorization: sessionStorage.getItem("token")
     }
   });
 };

@@ -6,7 +6,6 @@ import { deleteFavorite } from "../actions/index";
 import { connect } from "react-redux";
 
 function Dashboard(props) {
-  // console.log( 'dashboard props', props)
   const [preferences, setPreferences] = useState({
     id: 0,
     username: "",
@@ -23,7 +22,8 @@ function Dashboard(props) {
   useEffect(() => {
     setChange(false);
     axiosWithAuth()
-      .get(`/users/${localStorage.getItem("ID")}`)
+    // change to session storage
+      .get(`/users/${sessionStorage.getItem("ID")}`)
       .then(response => {
         console.log("user data get request 1", response.data);
         setPreferences(response.data);
@@ -32,8 +32,6 @@ function Dashboard(props) {
         console.log("error updating user get request:", error);
       });
   }, [change]);
-
-  // console.log( "user preferences 3: ", preferences);
 
   const handleChange = event => {
     setPreferences({ ...preferences, [event.target.name]: event.target.value });
@@ -46,7 +44,8 @@ function Dashboard(props) {
     console.log(preferences, "preferences at time of post 4");
 
     axiosWithAuth()
-      .put(`/users/${localStorage.getItem("ID")}`, preferences)
+    // change to session storage
+      .put(`/users/${sessionStorage.getItem("ID")}`, preferences)
       .then(response => {
         console.log("Successful update: ", response.data);
       })
@@ -58,14 +57,16 @@ function Dashboard(props) {
   };
   const deleteAccount = () => {
     axiosWithAuth()
-      .delete(`/users/${localStorage.getItem("ID")}`)
+    // change to session storage
+      .delete(`/users/${sessionStorage.getItem("ID")}`)
       .then(response => {
         console.log("deleted user:", response.data);
       })
       .catch(error => {
         console.log("deleted user error:", error);
       });
-    localStorage.clear();
+      // change to session storage
+      sessionStorage.clear();
     props.history.push("/");
   };
 

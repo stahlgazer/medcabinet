@@ -14,7 +14,8 @@ const Browse = (props) => {
   useEffect(() => {
     setIsLoading(true);
     axiosWithAuth()
-      .get(`/users/${localStorage.getItem("ID")}`)
+    // change to session storage
+      .get(`/users/${sessionStorage.getItem("ID")}`)
       .then((res) => {
         console.log(res.data);
         setUser(res.data);
