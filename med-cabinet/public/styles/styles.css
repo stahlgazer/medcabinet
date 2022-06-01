@@ -72,21 +72,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
-  -ms-flex-item-align: left;
-      align-self: left;
-  justify-self: last baseline;
-  -ms-flex-line-pack: left;
-      align-content: left;
-  justify-items: left;
-  justify-self: left;
   max-width: 25%;
-  max-height: 700px;
   margin: 2% 2%;
   border: 1px solid gray;
   -webkit-box-shadow: -5px -5px 5px gray;
@@ -108,7 +94,7 @@
 
 .favs-container .dashboard-favs button {
   width: 200px;
-  margin: 1% center;
+  margin: 1% auto;
 }
 
 .favs-container .dashboard-favs .descriptions {
